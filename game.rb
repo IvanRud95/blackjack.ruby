@@ -39,4 +39,12 @@ class Game
       @isstay = true
     end
   end
+
+  def over
+    if @isstay || (@ph.points >= 21) then
+      true
+    else
+      false
+    end
+  end
 end
