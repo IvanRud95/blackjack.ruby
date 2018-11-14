@@ -29,10 +29,10 @@ class Card
 
   def suit_name(suit)
     case suit
-    when 1 then 'Spades'
-    when 2 then 'Hearts'
-    when 3 then 'Clubs'
-    when 4 then 'Diamonds'
+    when 1 then "\u2663" #'Spades'
+    when 2 then "\u2665" #'Hearts'
+    when 3 then "\u2665" #Clubs'
+    when 4 then "\u2666" #'Diamonds'
     else
       raise 'Error in suit name'
     end
