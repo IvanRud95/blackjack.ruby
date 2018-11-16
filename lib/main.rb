@@ -1,8 +1,10 @@
 require_relative 'card'
 require_relative 'desk'
 require_relative 'hand'
-require_relative 'bjui'
 require_relative 'game'
+require_relative 'dealer'
+require_relative 'player'
+require_relative 'constant'
 
-gm = Bjui.new
-gm.main
+gm = Game.new
+gm.start_game
