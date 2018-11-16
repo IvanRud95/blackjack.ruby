@@ -2,8 +2,7 @@ require_relative 'desk'
 require_relative 'hand'
 class Game
 
-  attr_reader :desk, :player, :dealer
-
+  attr_reader :desk, :player, :dealer, :items
   def initialize
     @interface = Interface.new
     @dealer = Dealer.new
@@ -30,8 +29,8 @@ class Game
 
   def deal_cards
     reset_hand_players
-    2.times {player.get_cards(desk.hit)}
-    2.times {dealer.get_cards(desk.hit)}
+    2.times { player.get_cards(desk.hit) }
+    2.times { dealer.get_cards(desk.hit) }
   end
 
   def reset_hand_players
@@ -90,13 +89,13 @@ class Game
     dl_tp = dealer.total_points
     dealer_cards = dealer.count_cards_hand
     player_turn unless dl_tp < MAX_POINTS_DEALER_TAKE_CARD && dealer_cards < MAX_NUMBER_CARDS
-    dealer.get_cards(deck.hit)
+    dealer.get_cards(desk.hit)
     player_turn
   end
 
   def player_take_card
     return unless player.count_cards_hand == NUMBER_CARDS_PLAYER
-    player.get_cards(deck.hit)
+    player.get_cards(desk.hit)
     player_turn
   end
 
