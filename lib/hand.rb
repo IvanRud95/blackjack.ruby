@@ -1,6 +1,5 @@
 require_relative 'card'
 class Hand
-  include Constant
   def message(key)
     puts MESSAGES[key]
   end

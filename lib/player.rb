@@ -19,7 +19,7 @@ class Player
       break if sum <= MAX_POINTS
       sum -= 10
     end
-    sum
+
   end
 
   def show_hand
