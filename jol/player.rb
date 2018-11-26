@@ -1,0 +1,18 @@
+class Player
+  attr_accessor :points
+  attr_reader :name, :cards
+
+  def initialize(name)
+    @name = name
+    @cards = []
+    @points = 0
+  end
+
+  def get_card(card)
+    cards << card
+  end
+
+  def remove_cards
+    @cards = []
+  end
+end
