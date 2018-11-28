@@ -59,6 +59,6 @@ class GamePlay
 
   def cards_points(person)
     person.get_card(@deck.take_card)
-    person.points = logic.conversion_ace_value(person)
+    person.points = operations.conversion_ace_value(person)
   end
 end
