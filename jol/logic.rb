@@ -1,4 +1,4 @@
-class Operations
+class Logic
 
   def count_ace_value(player)
     points = count_points(player)
