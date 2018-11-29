@@ -5,8 +5,8 @@ class Interface
     gets.chomp
   end
 
-  def greeting(user_name)
-    puts "Hello, #{user_name}! "
+  def greeting(player_name)
+    puts "Hello, #{player_name}! "
   end
 
   def shuffling

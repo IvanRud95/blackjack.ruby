@@ -1,5 +1,7 @@
+require_relative 'logic'
+
 class Game
-  attr_reader :player, :dealer, :menu, :logic, :gameplay
+  attr_reader :player, :dealer, :interface, :logic, :gameplay
 
   def initialize(menu, logic)
     @gameplay = ''
@@ -7,11 +9,11 @@ class Game
     @logic = logic
 
     @player = ''
-    @dealer = Dealer.new('Dealer')
+    @dealer = Player.new('Dealer')
   end
 
   def start
-    @player = Player.new(menu.ask_name)
+    @player = Player.new(interface.ask_name)
     interface.greeting(player.name)
     game
   end
@@ -19,9 +21,9 @@ class Game
   private
 
   def game
-    gameplay = GamePlay.new(menu, logic, player, dealer)
+    gameplay = GamePlay.new(interface, logic, player, dealer)
     gameplay.shuffle_deck
     gameplay.deal_cards
-    game if menu.continue?
+    game if interface.continue?
   end
 end

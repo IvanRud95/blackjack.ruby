@@ -6,4 +6,4 @@ require_relative 'interface'
 require_relative 'logic'
 require_relative 'gameplay'
 
-Game.new(Menu.new, Logic.new).start
+Game.new(Interface.new, Logic.new).start

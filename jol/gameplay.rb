@@ -17,7 +17,7 @@ class GamePlay
   end
 
   def shuffle_deck
-    menu.shuffling
+    interface.shuffling
     deck.shuffle
   end
 
@@ -41,7 +41,7 @@ class GamePlay
 
   def user_get_cards
     loop do
-      choise = menu.ask_card
+      choise = interface.ask_card
       break if choise == 0
       cards_points(user) if choise == 1
       interface.give_cards(user, logic.count_points(player))
@@ -53,12 +53,12 @@ class GamePlay
     loop do
       break if dealer.points > player.points || player.points > 21 || dealer.points > 20
       cards_points(dealer)
-      interface.give_cards(dealer, operations.count_points(dealer))
+      interface.give_cards(dealer, logic.count_points(dealer))
     end
   end
 
   def cards_points(person)
     person.get_card(@deck.take_card)
-    person.points = operations.conversion_ace_value(person)
+    person.points = logic.count_ace_value(person)
   end
 end
