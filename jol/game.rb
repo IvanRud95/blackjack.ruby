@@ -1,27 +1,27 @@
 class Game
-  attr_reader :player, :dealer, :menu, :logic, :game_play
+  attr_reader :player, :dealer, :menu, :logic, :gameplay
 
   def initialize(menu, logic)
-    @game_play = ''
+    @gameplay = ''
     @menu = menu
     @logic = logic
 
     @player = ''
-    @dealer = Diller.new('Dealer')
+    @dealer = Dealer.new('Dealer')
   end
 
   def start
-    @user = User.new(menu.ask_name)
-    menu.greeting(player.name)
+    @player = Player.new(menu.ask_name)
+    interface.greeting(player.name)
     game
   end
 
   private
 
   def game
-    game_play = GamePlay.new(menu, logic, player, dealer)
-    game_play.shuffle_deck
-    game_play.deal_cards
+    gameplay = GamePlay.new(menu, logic, player, dealer)
+    gameplay.shuffle_deck
+    gameplay.deal_cards
     game if menu.continue?
   end
 end
