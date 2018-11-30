@@ -1,6 +1,6 @@
 class Player
   attr_accessor :points
-  attr_reader :name, :cards
+  attr_reader :name, :money, :cards
 
   def initialize(name)
     @name = name

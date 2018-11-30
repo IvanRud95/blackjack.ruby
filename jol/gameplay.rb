@@ -1,11 +1,11 @@
 class GamePlay
-  attr_accessor :bank
-  attr_reader :menu, :logic, :user, :dealer, :deck
 
-  def initialize(menu, logic, user, dealer)
+  attr_reader :interface, :logic, :user, :dealer, :deck
+
+  def initialize(interface, logic, user, dealer)
     @user = user
     @dealer = dealer
-    @menu = menu
+    @interface = interface
     @logic = logic
 
     @deck = Deck.new
@@ -34,7 +34,7 @@ class GamePlay
       cards_points(player)
       cards_points(dealer)
     end
-    interface.give_cards(player, logic.count_points(player))
+    interface.give_cards(user, logic.count_points(user))
     interface.give_cards(dealer, logic.count_points(dealer))
   end
 
@@ -50,14 +50,14 @@ class GamePlay
 
   def dealer_get_cards
     loop do
-      break if dealer.points > player.points || player.points > 21 || dealer.points > 20
+      break if dealer.points > user.points || user.points > 21 || dealer.points > 20
       cards_points(dealer)
       interface.give_cards(dealer, logic.count_points(dealer))
     end
   end
 
-  def cards_points(person)
-    person.get_card(@deck.take_card)
-    person.points = logic.count_ace_value(person)
+  def cards_points(player)
+    player.get_card(@deck.take_card)
+    player.points = logic.count_ace_value(player)
   end
 end

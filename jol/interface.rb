@@ -5,8 +5,8 @@ class Interface
     gets.to_i
   end
 
-  def greeting(player_name)
-    puts "Hello, #{player_name}! "
+  def hello(name)
+    puts "Hello, #{name}! "
   end
 
   def shuffling
@@ -14,9 +14,9 @@ class Interface
   end
 
   def ask_card
-    puts '1 - One more card.'
     puts '0 - Enough.'
-    print 'Please, make your choise: '
+    puts '1 - One more card.'
+    print 'Please, make your choice: '
     gets.chomp.to_i
   end
 
@@ -32,7 +32,7 @@ class Interface
     puts 'Do you want to continue the game?'
     puts '1 - Yes!'
     puts '0 - No.'
-    print 'Please, make your choise: '
+    print 'Please, make your choice: '
     return true if gets.chomp.to_i == 1
     false
   end
