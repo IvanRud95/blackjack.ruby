@@ -8,7 +8,6 @@ class GamePlay
     @menu = menu
     @logic = logic
 
-    @bank = 0
     @deck = Deck.new
     user.points = 0
     user.remove_cards
@@ -35,7 +34,7 @@ class GamePlay
       cards_points(player)
       cards_points(dealer)
     end
-    interface.give_cards(player, operations.count_points(player))
+    interface.give_cards(player, logic.count_points(player))
     interface.give_cards(dealer, logic.count_points(dealer))
   end
 

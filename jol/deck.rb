@@ -9,6 +9,7 @@ class Deck
   SUITS = ['♦', '♣', '♠', '♥']
 
   attr_accessor :cards
+
   def initialize
     @cards = []
     give

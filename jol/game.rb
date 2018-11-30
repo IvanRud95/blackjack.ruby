@@ -1,19 +1,19 @@
 require_relative 'logic'
 
 class Game
-  attr_reader :player, :dealer, :interface, :logic, :gameplay
+  attr_reader :player, :dealer, :logic, :gameplay, :menu
 
   def initialize(menu, logic)
     @gameplay = ''
     @menu = menu
     @logic = logic
 
-    @player = ''
+    @user = ''
     @dealer = Player.new('Dealer')
   end
 
   def start
-    @player = Player.new(interface.ask_name)
+    interface.ask_name
     interface.greeting(player.name)
     game
   end

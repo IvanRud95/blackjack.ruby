@@ -2,7 +2,7 @@ class Interface
 
   def ask_name
     print 'Enter your name, please: '
-    gets.chomp
+    gets.to_i
   end
 
   def greeting(player_name)
