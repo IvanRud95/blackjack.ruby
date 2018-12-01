@@ -1,18 +1,18 @@
 require_relative 'interface'
-class Deck
+
+class Desk
 
   VALUES = {
       '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9,
       '10': 10, 'J': 10, 'Q': 10, 'K': 10, 'A': 11
   }
-
   SUITS = ['♦', '♣', '♠', '♥']
 
   attr_accessor :cards
 
   def initialize
     @cards = []
-    give
+    deal
   end
 
   def shuffle
@@ -25,7 +25,7 @@ class Deck
 
   private
 
-  def give
+  def deal
     SUITS.each do |suit|
       VALUES.each do |name, value|
         @cards << Card.new("#{name}#{suit.to_s}", value)

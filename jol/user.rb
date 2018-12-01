@@ -1,11 +1,11 @@
-class User < Person
+class User < Player
   def initialize(name)
     super
     @money = 100
   end
 
   def bet(value)
-    widthdraw(value)
+    withdraw(value)
     value
   end
 
@@ -20,8 +20,8 @@ class User < Person
 
   private
 
-  def widthdraw(value)
-    raise ArgumentError, 'Your bet is largest your balance!' if value > money
+  def withdraw(value)
+    raise ArgumentError, 'Money is not enough' if value > money
     @money -= value
   end
 end

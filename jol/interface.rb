@@ -1,26 +1,24 @@
 class Interface
 
-  def ask_name
-    print 'Enter your name, please: '
-    gets.to_i
+  def name
+    puts "Hello. Lets's play Black Jack game"
+    print 'Enter your name:'
+    gets.chomp
   end
 
-  def hello(name)
-    puts "Hello, #{name}! "
+  def bet
+    print 'make your bet: '
+    gets.chomp.to_i
   end
 
-  def shuffling
-    puts 'Shuffling...'
-  end
-
-  def ask_card
-    puts '0 - Enough.'
+  def card
     puts '1 - One more card.'
+    puts '0 - Enough.'
     print 'Please, make your choice: '
     gets.chomp.to_i
   end
 
-  def give_cards(player, points)
+  def puts_cards(player, points)
     print "#{player.name}'s cards:"
     player.cards.each do |card|
       print " #{card.name}"
@@ -28,13 +26,26 @@ class Interface
     puts "  Total: #{points}"
   end
 
-  def continue?
-    puts 'Do you want to continue the game?'
+  def puts_payout(bank)
+    puts "Bank for payout: #{bank}"
+  end
+
+  def continue
+    puts 'Do you want to continue?'
     puts '1 - Yes!'
     puts '0 - No.'
     print 'Please, make your choice: '
     return true if gets.chomp.to_i == 1
     false
+  end
+
+  def greeting(user_name)
+    puts "Hello, #{user_name}!"
+  end
+
+  def show_bets(bank, user_money)
+    puts "Your bet: #{bank}; "
+    puts "Balance: #{user_money}"
   end
 
 end

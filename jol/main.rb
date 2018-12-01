@@ -1,10 +1,13 @@
-require_relative 'game'
-require_relative 'card'
-require_relative 'deck'
-require_relative 'player'
+require_relative 'menu'
 require_relative 'interface'
 require_relative 'logic'
-require_relative 'gameplay'
+require_relative 'game_play'
+require_relative 'card'
+require_relative 'desk'
+require_relative 'player'
 require_relative 'user'
 
-Game.new(Interface.new, Logic.new).start
+
+Menu.new(Interface.new, Logic.new).start
+
+puts "Thank you for playing, bye"
