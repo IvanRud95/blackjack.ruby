@@ -48,4 +48,8 @@ class Interface
     puts "Balance: #{user_money}"
   end
 
+  def bye
+    puts "Thank you for playing, Good bye"
+  end
+
 end

@@ -1,4 +1,5 @@
 require_relative 'interface'
+require_relative 'card'
 
 class Deck
 
