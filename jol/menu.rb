@@ -1,4 +1,4 @@
-require_relative 'logic'
+require_relative 'hand'
 
 class Menu
   attr_reader :user, :dealer, :menu, :logic, :game_play
