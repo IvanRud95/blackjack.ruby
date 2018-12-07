@@ -6,6 +6,7 @@ class Player
     @name = name
     @cards = []
     @points = 0
+    @hand = Hand.new
   end
 
   def get_card(card)

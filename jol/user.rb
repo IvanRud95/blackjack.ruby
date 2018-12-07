@@ -1,5 +1,5 @@
 class User < Player
   def initialize(name)
-    super
+    super('user')
   end
 end

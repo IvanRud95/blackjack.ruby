@@ -5,12 +5,11 @@ class GamePlay
   def initialize(menu, logic, user, dealer)
     @user = user
     @dealer = dealer
-    validation_money!
     @menu = menu
     @logic = logic
 
-    @bank = 0
-    @deck = Desk.new
+    @bank = Bank.new(0)
+    @deck = Deck.new
     user.points = 0
     user.remove_cards
     dealer.points = 0
@@ -18,17 +17,17 @@ class GamePlay
   end
 
   def preparation
-    menu.show_bets(bank, user.money)
+    menu.show_bets(bank,@user.bank)
   end
 
   def taking_bet
     begin
-      @bank = user.bet(menu.bet)
+      @bank = bank.add_money(@player.bank.bet, @dealer.bank.bet)
     rescue ArgumentError => e
       p e.message
       retry
     end
-    menu.show_bets(bank, user.money)
+    menu.show_bets(user.bank, dealer.bank)
   end
 
   def shuffle_deck
@@ -48,7 +47,7 @@ class GamePlay
   private
 
   def validation_money!
-    raise ArgumentError, 'You have no money!' unless user.money?
+    raise ArgumentError, 'You have no money!' unless bank.money?
   rescue ArgumentError => e
     abort e.message
   end
