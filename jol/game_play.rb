@@ -1,3 +1,5 @@
+require_relative 'hand'
+
 class GamePlay
   attr_accessor :bank
   attr_reader :menu, :logic, :user, :dealer, :deck
@@ -22,7 +24,7 @@ class GamePlay
 
   def taking_bet
     begin
-      @bank = bank.add_money(@player.bank.bet, @dealer.bank.bet)
+      @bank = bank.deposit(@player.bank.bet, @dealer.bank.bet)
     rescue ArgumentError => e
       p e.message
       retry
@@ -75,12 +77,12 @@ class GamePlay
     loop do
       break if dealer.points > user.points || user.points > 21 || dealer.points > 20
       cards_points(dealer)
-      menu.puts_cards(dealer, logic.count_points(dealer))
+      menu.puts_cards(dealer, hand.count_points(dealer))
     end
   end
 
   def cards_points(player)
     player.get_card(@deck.take_card)
-    player.points = logic.conversion_ace_value(player)
+    player.points = hand.conversion_ace_value(player)
   end
 end

@@ -1,6 +1,6 @@
 class Bank
 
-  def initialize
+  def initialize(value)
     @money = 100
   end
 

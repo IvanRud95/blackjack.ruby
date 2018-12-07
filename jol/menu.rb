@@ -1,12 +1,12 @@
 require_relative 'hand'
 
 class Menu
-  attr_reader :user, :dealer, :menu, :logic, :game_play
+  attr_reader :user, :dealer, :menu, :hand, :game_play
 
-  def initialize(menu, logic)
+  def initialize(menu, hand)
     @game_play = ''
     @menu = menu
-    @logic = logic
+    @hand = hand
 
     @user = ''
     @dealer = Player.new('Dealer')
@@ -21,7 +21,7 @@ class Menu
   private
 
   def play
-    game_play = GamePlay.new(menu, logic, user, dealer)
+    game_play = GamePlay.new(menu, hand, user, dealer)
     game_play.preparation
     game_play.taking_bet
     game_play.shuffle_deck
