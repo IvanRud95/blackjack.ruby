@@ -6,7 +6,7 @@ class GamePlay
     @user = user
     @dealer = dealer
     @menu = menu
-    @logic = logic
+    @hand = Hand.new
 
     @bank = Bank.new(0)
     @deck = Deck.new
@@ -41,7 +41,7 @@ class GamePlay
   end
 
   def payout
-    logic.count_payout(user, dealer, bank)
+    hand.count_payout(user, dealer, bank)
   end
 
   private
@@ -57,8 +57,8 @@ class GamePlay
       cards_points(user)
       cards_points(dealer)
     end
-    menu.puts_cards(user, logic.count_points(user))
-    menu.puts_cards(dealer, logic.count_points(dealer))
+    menu.puts_cards(user, hand.count_points(user))
+    menu.puts_cards(dealer, hand.count_points(dealer))
   end
 
   def user_cards
@@ -66,7 +66,7 @@ class GamePlay
       choice = menu.card
       break if choice == 0
       cards_points(user) if choice == 1
-      menu.puts_cards(user, logic.count_points(user))
+      menu.puts_cards(user, hand.count_points(user))
       break if user.points > 21
     end
   end
