@@ -19,7 +19,7 @@ class GamePlay
   end
 
   def preparation
-    menu.show_bets(@user.bank.bet)
+    menu.show_bets(user.bank.bet)
   end
 
   def taking_bet
